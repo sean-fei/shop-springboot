@@ -10,6 +10,14 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>shop-order</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>order-api</module>
+        <module>order-boot</module>
+        <module>order-impl</module>
+        <module>order-spi</module>
+        <module>order-vo</module>
+    </modules>
 
 
 </project>
