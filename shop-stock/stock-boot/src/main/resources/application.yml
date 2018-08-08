@@ -1,0 +1,65 @@
+spring:
+  datasource:
+    druid:
+      driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://192.168.16.207:3306/shop
+      username: root
+      password: root
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL5Dialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+   
+#logging:
+#  config: classpath:log4j2-spring.xml
+#  file: ${spring.application.name}
+#  path: ./logs
+#  register-shutdown-hook: true
+    
+endpoints:
+  logfile:
+    enabled: true
+    external-file: ${logging.path}/${logging.file}-trace.log
+
+eos:
+  service:
+    server:
+      http-log-level: full
+
+feign:
+  hystrix:
+    enabled: true
+
+management:
+  security:
+    enabled: false
+security:
+  basic:
+    enabled: false
+ 
+swagger:
+  title: ${spring.application.name} API
+  description: ${spring.application.name} API
+  creator: ${spring.application.name}
+  version: 1.0.0
+  
+server:
+  port: 61111
+mybatis:
+  mapper-locations: classpath*:mapper/*Mapper.xml
+
+# tk.mybatis 配置
+mapper:
+  mappers: com.sean.shop.stock.mapper.StockMapper
+  not-empty: false
+  identity: mysql
+# pagehelper分页插件配置
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  params: countSql
