@@ -39,7 +39,7 @@ public class StockServiceImpl implements StockService {
         if(null == stock) {
             return null;
         }
-        Stock entity = stockMapper.selectByPrimaryKey(stockId);
+        Stock entity = this.getStockById(stockId);
         if(null != entity) {
             BeanUtils.copyPropertiesIgnoreNull(stock, entity);
             stockMapper.updateByPrimaryKey(entity);
@@ -57,7 +57,7 @@ public class StockServiceImpl implements StockService {
 
     @Override
     public StockVO getById(String stockId) {
-        Stock entity = stockMapper.selectByPrimaryKey(stockId);
+        Stock entity = this.getStockById(stockId);
         if(null == entity) {
             return null;
         }
@@ -70,7 +70,7 @@ public class StockServiceImpl implements StockService {
     public PageInfo<StockVO> queryStockPage(String productName, String versionCode, int pageNum, int pageSize) {
         List<StockVO> voList = new ArrayList<StockVO>();
         PageHelper.startPage(pageNum, pageSize);
-        List<Stock> stocks = stockMapper.selectAll();
+        List<Stock> stocks = this.findStocks(productName, versionCode);
         try {
             voList = BeanUtils.copyToPropertiesIgnoreNull(stocks, StockVO.class);
         } catch (IllegalAccessException e) {
@@ -86,7 +86,7 @@ public class StockServiceImpl implements StockService {
     @Override
     public List<StockVO> queryStock(String productName, String versionCode) {
         List<StockVO> voList = new ArrayList<StockVO>();
-        List<Stock> stocks = stockMapper.selectAll();
+        List<Stock> stocks = this.findStocks(productName, versionCode);
         try {
             voList = BeanUtils.copyToPropertiesIgnoreNull(stocks, StockVO.class);
         } catch (IllegalAccessException e) {
@@ -97,6 +97,17 @@ public class StockServiceImpl implements StockService {
             e.printStackTrace();
         }
         return voList;
+    }
+
+    public Stock getStockById(String stockId) {
+        return stockMapper.selectByPrimaryKey(stockId);
+    }
+
+    public List<Stock> findStocks(String productName, String versionCode) {
+        Stock stock = new Stock();
+//        stock.setVersionCode(productCode);
+//        stock.s.setProductName(productName);
+        return stockMapper.select(stock);
     }
 
 }

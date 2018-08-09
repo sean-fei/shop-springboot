@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<loggers>
+	<Root level="info">
+		<AppenderRef ref="ConsoleAppender" />
+		<AppenderRef ref="TraceRollingFileAppender" />
+	</Root>
+
+	<Logger name="log.sys" level="info" additivity="false">
+		<AppenderRef ref="SysRollingFileAppender" />
+	</Logger>
+
+	<Logger name="com.primeton" level="info" additivity="false">
+		<AppenderRef ref="ConsoleAppender" />
+		<AppenderRef ref="TraceRollingFileAppender" />
+	</Logger>
+	
+	<Logger name="org.apache.catalina.startup.DigesterFactory" level="error" />
+	<Logger name="org.apache.catalina.util.LifecycleBase" level="error" />
+	<Logger name="org.apache.coyote.http11.Http11NioProtocol" level="warn" />
+	<logger name="org.apache.sshd.common.util.SecurityUtils" level="warn"/>
+	<Logger name="org.apache.tomcat.util.net.NioSelectorPool" level="warn" />
+	<Logger name="org.crsh.plugin" level="warn" />
+	<logger name="org.crsh.ssh" level="warn"/>
+	<Logger name="org.eclipse.jetty.util.component.AbstractLifeCycle" level="error" />
+	<Logger name="org.hibernate.validator.internal.util.Version" level="warn" />
+	<logger name="org.springframework.boot.actuate.autoconfigure.CrshAutoConfiguration" level="warn"/>
+	<logger name="org.springframework.boot.actuate.endpoint.jmx" level="warn"/>
+	<logger name="org.thymeleaf" level="warn"/>
+	
+</loggers>

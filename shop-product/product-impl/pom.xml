@@ -11,5 +11,25 @@
 
     <artifactId>product-impl</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.sean.shop</groupId>
+            <artifactId>shop-common</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.sean.shop</groupId>
+            <artifactId>product-vo</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>tk.mybatis</groupId>
+            <artifactId>mapper-spring-boot-starter</artifactId>
+        </dependency>
+
+    </dependencies>
 
 </project>

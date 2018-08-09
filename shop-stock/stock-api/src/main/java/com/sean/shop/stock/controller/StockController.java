@@ -48,7 +48,7 @@ public class StockController {
     @ApiOperation(value = "根据ID查询库存详情")
     @ApiResponses(value = { @ApiResponse(code = 200, message = "根据ID查询库存详情", response = StockVO.class) })
     public StockVO getById(@ApiParam(value = "库存ID", required = true) @PathVariable String stockId) {
-        return stockService.deleteStockById(stockId);
+        return stockService.getById(stockId);
     }
 
     @GetMapping("/page/info")

@@ -1,0 +1,35 @@
+spring:
+  application:
+    name: stockmgr
+  cloud:
+    config:
+      enabled: false
+    inetutils:
+      preferred-networks: 
+        - 192.168.16
+
+apollo:
+  bootstrap:
+    enabled: true
+  cluster: default
+  env: dev
+  domains:
+    local_meta: http://127.0.0.1:8081
+    dev_meta: http://192.168.16.206:8081
+    fat_meta: http://127.0.0.1:8081
+    uat_meta: http://127.0.0.1:8081
+    pro_meta: http://127.0.0.1:8081
+        
+eureka:
+  instance:
+    leaseRenewalIntervalInSeconds: 10
+    prefer-ip-address: true
+#    homePageUrlPath: ${server.context-path}
+#    statusPageUrlPath: ${server.context-path}/info
+#    healthCheckUrlPath: ${server.context-path}/health
+    app-group-name: default
+  client:
+    enabled: true
+    registryFetchIntervalSeconds: 5
+    serviceUrl:
+      defaultZone: http://192.168.16.206:8761/eureka

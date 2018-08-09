@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sean.shop.product.mapper.VersionMapper">
+
+    <resultMap id="BaseResultMap" type="com.sean.shop.product.model.Version">
+        <id column="version_id"         jdbcType="VARCHAR"  property="versionId" />
+        <result column="version_code"   jdbcType="VARCHAR"  property="versionCode" />
+        <result column="version_name"   jdbcType="VARCHAR"  property="versionName" />
+        <result column="version_desc"   jdbcType="VARCHAR"  property="versionDesc" />
+        <result column="price"          jdbcType="FLOAT"    property="price" />
+        <result column="product_id"     jdbcType="VARCHAR"  property="productId" />
+    </resultMap>
+
+
+
+</mapper>

@@ -48,13 +48,13 @@ swagger:
   version: 1.0.0
   
 server:
-  port: 61111
+  port: 61112
 mybatis:
   mapper-locations: classpath*:mapper/*Mapper.xml
 
 # tk.mybatis 配置
 mapper:
-#  mappers: com.sean.shop.stock.mapper.StockMapper
+#  mappers: com.sean.shop.product.mapper.ProductMapper
   not-empty: false
   identity: mysql
 # pagehelper分页插件配置

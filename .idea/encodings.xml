@@ -2,6 +2,26 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shop-common" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shop-order" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shop-order/order-api" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shop-order/order-boot" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shop-order/order-impl" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shop-order/order-spi" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shop-order/order-vo" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/shop-parent" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shop-parent/shop-common" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shop-product" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shop-product/product-api" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shop-product/product-boot" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shop-product/product-impl" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shop-product/product-spi" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shop-product/product-vo" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shop-stock" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shop-stock/stock-api" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shop-stock/stock-boot" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shop-stock/stock-impl" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shop-stock/stock-spi" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shop-stock/stock-vo" charset="UTF-8" />
   </component>
 </project>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration xmlns:xi="http://www.w3.org/2001/XInclude" status="warn" name="eos">
+	<properties>
+		<!-- copy 自 spring 定义的默认pattern属性 -->
+		<Property name="LOG_EXCEPTION_CONVERSION_WORD">%xwEx</Property>
+		<Property name="LOG_LEVEL_PATTERN">%5p</Property>
+		<Property name="CONSOLE_LOG_PATTERN">%clr{%d{yyyy-MM-dd HH:mm:ss.SSS}}{faint} %clr{${LOG_LEVEL_PATTERN}} %clr{${sys:PID}}{magenta} %clr{---}{faint} %clr{[%15.15t]}{faint} %clr{%-40.40c{1.}}{cyan} %clr{:}{faint} %m%n${sys:LOG_EXCEPTION_CONVERSION_WORD}</Property>
+		<Property name="FILE_LOG_PATTERN">%d{yyyy-MM-dd HH:mm:ss.SSS} ${LOG_LEVEL_PATTERN} ${sys:PID} --- [%t] %-40.40c{1.} : %m%n${sys:LOG_EXCEPTION_CONVERSION_WORD}</Property>
+	
+		<!-- eos 自定义的参数 -->
+		<!-- 
+			日志输出目录，默认值为当前运行环境下的logs目录
+			值来自JVM参数LOG_PATH 或 application配置文件的属性：logging.path，配置文件优先 
+		-->
+		<property name="log.dir">${sys:LOG_PATH:-./logs}</property>
+		<!-- 
+			日志文件前缀，默认为应用名，与日志采集监控器相关不建议修改，
+			值来自JVM参数LOG_FILE 或 application配置文件的属性：logging.file，配置文件优先 
+		-->
+		<!--<property name="log.file.prefix">service-b-provider</property>-->
+ 		<property name="log.file.prefix">${sys:LOG_FILE:-app}</property> 
+		<!-- 系统日志格式，不建议修改 -->
+		<property name="file.log.patten.sys">%m%n</property>
+		<!-- 跟踪日志格式，Spring默认格式，可按需修改 -->
+		<property name="file.log.patten.trace">${FILE_LOG_PATTERN}</property>
+		<!-- 控制台日志格式，Spring默认格式，可按需修改 -->
+		<property name="console.log.patten">${CONSOLE_LOG_PATTERN}</property>
+		
+	</properties>
+	<ThresholdFilter level="debug" />
+	<xi:include href="log4j2-appenders.xml" />
+	<xi:include href="log4j2-loggers.xml" />
+</configuration>
