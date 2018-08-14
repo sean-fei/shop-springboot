@@ -28,7 +28,7 @@ public class StockServiceImpl implements StockService {
     @Override
     public StockVO saveStock(StockVO stock) {
         Stock entity = new Stock();
-        stock.setProductId(IDGenerator.getUUID());
+        stock.setStockId(IDGenerator.getUUID());
         BeanUtils.copyPropertiesIgnoreNull(stock, entity);
         stockMapper.insert(entity);
         return stock;
@@ -68,11 +68,13 @@ public class StockServiceImpl implements StockService {
 
     @Override
     public PageInfo<StockVO> queryStockPage(String productName, String versionCode, int pageNum, int pageSize) {
-        List<StockVO> voList = new ArrayList<StockVO>();
-        PageHelper.startPage(pageNum, pageSize);
-        List<Stock> stocks = this.findStocks(productName, versionCode);
+        PageInfo<StockVO> pageInfo = null;
+        PageHelper.startPage(pageNum, pageSize, true);
+        List<Stock> stocks = stockMapper.select(null);
         try {
-            voList = BeanUtils.copyToPropertiesIgnoreNull(stocks, StockVO.class);
+            List<StockVO> voList = BeanUtils.copyToPropertiesIgnoreNull(stocks, StockVO.class);
+            pageInfo = new PageInfo<StockVO>(voList);
+//            pageInfo.setTotal(this.selectCount(productName, versionCode));
         } catch (IllegalAccessException e) {
             e.printStackTrace();
         } catch (InvocationTargetException e) {
@@ -80,7 +82,7 @@ public class StockServiceImpl implements StockService {
         } catch (InstantiationException e) {
             e.printStackTrace();
         }
-        return new PageInfo<StockVO>(voList);
+        return pageInfo;
     }
 
     @Override
@@ -105,9 +107,16 @@ public class StockServiceImpl implements StockService {
 
     public List<Stock> findStocks(String productName, String versionCode) {
         Stock stock = new Stock();
-//        stock.setVersionCode(productCode);
-//        stock.s.setProductName(productName);
+        stock.setProductId(productName);
+        stock.setVersionId(versionCode);
         return stockMapper.select(stock);
+    }
+
+    public int selectCount(String productName, String versionCode) {
+        Stock stock = new Stock();
+        stock.setProductId(productName);
+        stock.setVersionId(versionCode);
+        return stockMapper.selectCount(stock);
     }
 
 }

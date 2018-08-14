@@ -1,4 +1,4 @@
-package com.sean.shop.stock;
+package com.sean.shop.configurable;
 
 import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.context.annotation.Bean;
