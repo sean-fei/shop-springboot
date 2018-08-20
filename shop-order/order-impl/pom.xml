@@ -10,6 +10,14 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>order-impl</artifactId>
+    <dependencies>
+        <dependency>
+            <groupId>com.sean.shop</groupId>
+            <artifactId>order-vo</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
 
 
 </project>

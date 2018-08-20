@@ -25,30 +25,19 @@ endpoints:
     enabled: true
     external-file: ${logging.path}/${logging.file}-trace.log
 
-eos:
-  service:
-    server:
-      http-log-level: full
-
 feign:
   hystrix:
     enabled: true
-
-management:
-  security:
-    enabled: false
-security:
-  basic:
-    enabled: false
  
 swagger:
   title: ${spring.application.name} API
   description: ${spring.application.name} API
   creator: ${spring.application.name}
   version: 1.0.0
-  
+
 server:
   port: 61112
+
 mybatis:
   mapper-locations: classpath*:mapper/*Mapper.xml
 
@@ -57,6 +46,7 @@ mapper:
 #  mappers: com.sean.shop.product.mapper.ProductMapper
   not-empty: false
   identity: mysql
+
 # pagehelper分页插件配置
 pagehelper:
   helper-dialect: mysql

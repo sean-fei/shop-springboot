@@ -14,11 +14,11 @@ spring:
     date-format: yyyy-MM-dd HH:mm:ss
     time-zone: GMT+8
    
-#logging:
-#  config: classpath:log4j2-spring.xml
-#  file: ${spring.application.name}
-#  path: ./logs
-#  register-shutdown-hook: true
+logging:
+  config: classpath:log4j2-spring.xml
+  file: ${spring.application.name}
+  path: ./logs
+  register-shutdown-hook: true
     
 endpoints:
   logfile:
@@ -33,13 +33,6 @@ eos:
 feign:
   hystrix:
     enabled: true
-
-management:
-  security:
-    enabled: false
-security:
-  basic:
-    enabled: false
  
 swagger:
   title: ${spring.application.name} API
