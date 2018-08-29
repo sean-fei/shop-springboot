@@ -53,6 +53,11 @@
             <artifactId>spring-boot-admin-server-ui-hystrix</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>de.codecentric</groupId>
+            <artifactId>spring-boot-admin-server-ui-turbine</artifactId>
+        </dependency>
+
     </dependencies>
 
 </project>

@@ -21,7 +21,9 @@
 		<module>config</module>
         <module>registry</module>
 		<module>monitor</module>
-	</modules>
+        <module>zipkin</module>
+        <module>auth-service</module>
+    </modules>
 
 	<dependencies>
 		<dependency>

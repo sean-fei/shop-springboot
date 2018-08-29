@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: zipkin
+  rabbitmq:
+    host: rabbitmq
+
+server:
+  port: 9411
+
+security:
+  user:
+    name: admin
+    password: ${ZIPKIN_SERVER_PASSWORD:admin}
+
+eureka:
+  client:
+      service-url:
+        defaultZone: http://user:${REGISTRY_SERVER_PASSWORD:password}@registry:8761/eureka/

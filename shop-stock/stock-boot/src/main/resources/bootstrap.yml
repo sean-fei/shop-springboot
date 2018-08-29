@@ -28,8 +28,18 @@ eureka:
 #    statusPageUrlPath: ${server.context-path}/info
 #    healthCheckUrlPath: ${server.context-path}/health
     app-group-name: default
+
+    metadata-map:
+      user.name: ${security.user.name}
+      user.password: ${security.user.password}
   client:
     enabled: true
     registryFetchIntervalSeconds: 5
     serviceUrl:
-      defaultZone: http://192.168.16.206:8761/eureka
+      defaultZone: http://user:${REGISTRY_SERVER_PASSWORD:password}@registry:8761/eureka/
+#      defaultZone: http://192.168.16.206:8761/eureka
+
+security:
+  user:
+    name: admin
+    password: ${MONITOR_SERVER_PASSWORD:admin}

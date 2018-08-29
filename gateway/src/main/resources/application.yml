@@ -1,0 +1,45 @@
+server:
+  port: 8060
+  context-path:
+
+management:
+  security:
+    enabled: false
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 20000
+
+ribbon:
+  ReadTimeout: 10000
+  ConnectTimeout: 10000
+
+zuul:
+  ignoredServices: '*'
+  routes:
+    auth-service:
+      path: /uaa/**
+      stripPrefix: false
+      sensitiveHeaders:
+#    svca-service:
+#      path: /svca/**
+#      sensitiveHeaders:
+#    svcb-service:
+#      path: /svcb/**
+#      sensitiveHeaders:
+
+eureka:
+  instance:
+    hostname: gateway
+    prefer-ip-address: true
+    health-check-url-path: ${server.context-path}/health
+    status-page-url-path: ${server.context-path}/info
+    metadata-map:
+      management.context-path: ${server.context-path}
+  client:
+    service-url:
+      defaultZone: http://user:${REGISTRY_SERVER_PASSWORD:password}@registry:8761/eureka/

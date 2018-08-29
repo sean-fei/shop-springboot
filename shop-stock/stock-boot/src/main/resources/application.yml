@@ -14,11 +14,11 @@ spring:
     date-format: yyyy-MM-dd HH:mm:ss
     time-zone: GMT+8
    
-logging:
-  config: classpath:log4j2-spring.xml
-  file: ${spring.application.name}
-  path: ./logs
-  register-shutdown-hook: true
+#logging:
+#  config: classpath:log4j2-spring.xml
+#  file: ${spring.application.name}
+#  path: ./logs
+#  register-shutdown-hook: true
     
 endpoints:
   logfile:
@@ -47,7 +47,7 @@ mybatis:
 
 # tk.mybatis 配置
 mapper:
-#  mappers: com.sean.shop.stock.mapper.StockMapper
+  mappers: com.sean.shop.stock.mapper.StockMapper
   not-empty: false
   identity: mysql
 # pagehelper分页插件配置

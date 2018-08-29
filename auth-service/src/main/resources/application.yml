@@ -1,0 +1,31 @@
+server:
+  context-path: /uaa
+  port: 5000
+
+management:
+  security:
+    enabled: false
+#  context-path: /mgmt
+
+eureka:
+  instance:
+    health-check-url-path: /health
+    status-page-url-path: /info
+#    metadata-map:
+#      management.context-path: ${server.context-path}
+  client:
+      service-url:
+        defaultZone: http://user:${REGISTRY_SERVER_PASSWORD:password}@registry:8761/eureka/
+
+spring:
+  datasource:
+    druid:
+      driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://192.168.16.207:3306/shop
+      username: root
+      password: root
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL5Dialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
